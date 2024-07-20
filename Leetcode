@@ -1,1 +1,32 @@
 
+-- Create the Cinema table
+CREATE TABLE Cinema (
+    id INT PRIMARY KEY,
+    movie VARCHAR,
+    description VARCHAR,
+    rating FLOAT
+);
+
+-- Insert sample data into the Cinema table
+INSERT INTO Cinema (id, movie, description, rating)
+VALUES
+    (1, 'War', 'great 3D', 8.9),
+    (2, 'Science', 'fiction', 8.5),
+    (3, 'irish', 'boring', 6.2),
+    (4, 'Ice song', 'Fantacy', 8.6),
+    (5, 'House card', 'Interesting', 9.1);
+
+-- Query the movies with odd-numbered ID and non-boring description, ordered by rating in descending order
+SELECT *
+FROM Cinema
+WHERE id % 2 = 1 AND description != 'boring'
+ORDER BY rating DESC;
+
+
+
+or 
+
+SELECT id, movie, description, rating
+FROM Cinema
+WHERE MOD(id, 2) = 1 and description <> 'boring'
+ORDER BY 4 DESC
